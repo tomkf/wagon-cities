@@ -9,6 +9,10 @@ import City from './city.jsx';
 
 class CityList extends Component {
 
+componentWillMount(){
+
+}
+
     render() {
         const displayCities = this.props.cities.map(cityItem => (  <City id={cityItem.id} key={cityItem.id} city={cityItem} />))
                return (
