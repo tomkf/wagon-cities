@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import City from './city.jsx';
-
-//  const cities = [
-//     { name: 'Paris', address: '16 Villa Gaudelet, 75011 Paris', slug: 'paris' },
-//     { name: 'London', address: '14-22 Elder St, London E1 6BT', slug: 'london' },
-//     { name: 'Berlin', address: 'Rudi-Dutschke-Straße 26, 10969 Berlin', slug: 'berlin' },
-//   ];
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { setCities } from '../actions/index.js';
 
 class CityList extends Component {
 
 componentWillMount(){
-
+this.props.setCities()
 }
 
     render() {
@@ -23,4 +20,19 @@ componentWillMount(){
           }
         }
 
-export default CityList
+function mapDispatchToProps(dispatch) {
+            return bindActionCreators(
+              { setCities: setCities },
+              dispatch
+            )
+          }
+          
+function mapStateToProps(state) {
+            return {
+              cities: state.cities,
+            }
+          }
+        
+
+
+export default connect(mapStateToProps)(CityList);
