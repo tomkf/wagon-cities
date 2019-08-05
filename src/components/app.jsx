@@ -1,16 +1,11 @@
-import React from 'react';
-import CityList from '../containers/city_list.jsx';
+import React from "react";
 
- const cities = [
-   { name: 'Paris', address: '16 Villa Gaudelet, 75011 Paris', slug: 'paris' },
-   { name: 'London', address: '14-22 Elder St, London E1 6BT', slug: 'london' },
-   { name: 'Berlin', address: 'Rudi-Dutschke-Straße 26, 10969 Berlin', slug: 'berlin' },
- ];
+import CityList from '../containers/city_list';
 
 const App = () => {
   return (
     <div className="app">
-      <CityList cities={cities} />
+      <CityList />
     </div>
   );
 };

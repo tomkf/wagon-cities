@@ -1,4 +1,4 @@
-const CityDB = [
+const cityDb = [
   { name: "Paris", address: "16 Villa Gaudelet, 75011 Paris", slug: "paris" },
   { name: "London", address: "14-22 Elder St, London E1 6BT", slug: "london" },
   {
@@ -94,4 +94,4 @@ const CityDB = [
   { name: "Lyon", address: "23 Rue Paul Montrochet, 69002 Lyon", slug: "lyon" }
 ];
 
-export default CityDB;
+export default cityDb;

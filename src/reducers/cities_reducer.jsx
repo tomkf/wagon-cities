@@ -1,13 +1,15 @@
-const CityReducer = (state, action) => {
+import { SET_CITIES } from '../actions/index.js';
+
+const cityReducer = (state, action) => {
     if (state === undefined){
         return []
     }
 
-    if (action.type === 'SET _CITIES'){
+    if (action.type === 'SET_CITIES'){
         return action.payload;
     } else {
         return state
     }
 }
 
-export default CityReducer
+export default cityReducer

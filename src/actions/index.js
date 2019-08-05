@@ -1,9 +1,10 @@
-// TODO: add and export your own actions
-import CityDB from "../city-db.js";
+import cityDb from "../city-db.js";
+
+export const SET_CITIES = "SET_CITIES";
 
 export function setCities() {
   return {
     type: "SET_CITIES",
-    payload: CityDB
+    payload: cityDb
   };
 }

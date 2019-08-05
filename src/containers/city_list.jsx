@@ -10,17 +10,21 @@ componentWillMount(){
 this.props.setCities()
 }
 
-    render() {
-        const displayCities = this.props.cities.map(cityItem => (  <City id={cityItem.id} key={cityItem.id} city={cityItem} />))
-               return (
-                  <div className="cities">
-                  {displayCities}
-                  </div>
-              )
-          }
+render() {
+    return (
+      <div className="city-list">
+      {this.props.setCities().payload.map( (city,index) => {
+        return <City key={index+1}
+              name={city.name}
+              address={city.address}
+              slug={city.slug}
+              />
+      })}
+      </div>
+    )
+  }
         }
-
-function mapDispatchToProps(dispatch) {
+ function mapDispatchToProps(dispatch) {
             return bindActionCreators(
               { setCities: setCities },
               dispatch
@@ -32,7 +36,5 @@ function mapStateToProps(state) {
               cities: state.cities,
             }
           }
-        
-
 
 export default connect(mapStateToProps)(CityList);
