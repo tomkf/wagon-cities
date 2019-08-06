@@ -1,10 +1,6 @@
-import cityDb from "../city-db.js";
-
-export const SET_CITIES = "SET_CITIES";
-
-export function setCities() {
+export default function selectCity(city) {
   return {
-    type: "SET_CITIES",
-    payload: cityDb
+    type: "CITY_SELECTED",
+    payload: city
   };
 }

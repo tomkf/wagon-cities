@@ -1,22 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-//  const cities = [
-//     { name: 'Paris', address: '16 Villa Gaudelet, 75011 Paris', slug: 'paris' },
-//     { name: 'London', address: '14-22 Elder St, London E1 6BT', slug: 'london' },
-//     { name: 'Berlin', address: 'Rudi-Dutschke-Straße 26, 10969 Berlin', slug: 'berlin' },
-//   ];
+import selectCity from '../actions/index';
 
-class City extends Component {
 
-    render() {
-        return (
-        <div className="city">
-        <h1>{this.props.city.name}</h1>
-        <h3>{this.props.city.address}</h3>
-        <h3>{this.props.city.slug}</h3>
-        </div>
-            )
-   }
-}
-
-export default City;
+const City = (props) => {
+    return (
+      <li
+        className="list-group-item"
+        onClick={() => props.selectCity(props.city)}
+      >{props.city.name}</li>
+    );
+  };
+  
+  function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ selectCity }, dispatch);
+  }
+  
+  export default connect(null, mapDispatchToProps)(City);

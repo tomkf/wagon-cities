@@ -2,39 +2,30 @@ import React, { Component } from 'react';
 import City from './city.jsx';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { setCities } from '../actions/index.js';
 
 class CityList extends Component {
 
-componentWillMount(){
-this.props.setCities()
-}
+  renderList() {
+    return this.props.cities.map((city) => {
+      return (
+        <City key={city.name} city={city} />
+      );
+    });
+  };
 
-render() {
+  render() {
     return (
-      <div className="city-list">
-      {this.props.setCities().payload.map( (city,index) => {
-        return <City key={index+1}
-              name={city.name}
-              address={city.address}
-              slug={city.slug}
-              />
-      })}
-      </div>
-    )
+      <ul className="list-group cities">
+        {this.renderList()}
+      </ul>
+    );
   }
-        }
- function mapDispatchToProps(dispatch) {
-            return bindActionCreators(
-              { setCities: setCities },
-              dispatch
-            )
-          }
+  }
+        
           
 function mapStateToProps(state) {
             return {
-              cities: state.cities,
-            }
+              cities: state.cities
           }
 
 export default connect(mapStateToProps)(CityList);
