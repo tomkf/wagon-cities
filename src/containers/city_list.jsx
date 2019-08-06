@@ -19,9 +19,8 @@ class CityList extends Component {
         {this.renderList()}
       </ul>
     );
+   }
   }
-  }
-        
           
 function mapStateToProps(state) {
             return {
