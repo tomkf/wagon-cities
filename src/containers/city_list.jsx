@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import City from './city.jsx';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import City from '../containers/city';
 
 class CityList extends Component {
-
   renderList() {
     return this.props.cities.map((city) => {
       return (
@@ -19,12 +19,13 @@ class CityList extends Component {
         {this.renderList()}
       </ul>
     );
-   }
   }
-          
+};
+
 function mapStateToProps(state) {
-            return {
-              cities: state.cities
-          }
+  return {
+    cities: state.cities
+  };
+}
 
 export default connect(mapStateToProps)(CityList);
